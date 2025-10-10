@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>KK Portfolio – Projects</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --brand-1: #007bff;
+        --brand-2: #6610f2;
+        --ring: rgba(13,110,253,.35);
+      }
+      body.dark {
+        --bg: #0b1020;
+        --card: #121a32;
+        --text: #e8eefc;
+        --muted: #94a3b8;
+        --ring: rgba(255,255,255,.35);
+      }
+      body.dark {
+  color: #e6e9ef !important; /* soft white for all normal text */
+}
+
+/* Ensure text inside paragraphs, list items, and headings also changes */
+body.dark p,
+body.dark li,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark span,
+body.dark div {
+  color: #e6e9ef !important;
+}
+
+
+      /* Base */
+      html, body { height: 100%; }
+      body {
+        font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      a { color: inherit; }
+      .focus-ring:focus { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: .6rem; }
+
+      /* Navbar */
+      .navbar { transition: all .4s ease; backdrop-filter: saturate(120%) blur(8px); }
+      .navbar.scrolled { box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+
+      /* Gradient text */
+      .text-gradient {
+        background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent;
+      }
+
+      /* Badge */
+      .open-badge {
+        display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; letter-spacing: .3px;
+        background: linear-gradient(135deg, rgba(0,123,255,.1), rgba(102,16,242,.1));
+        border: 1px solid rgba(102,16,242,.25);
+        color: var(--text); border-radius: 999px; padding: .5rem .9rem; font-size: .9rem;
+      }
+      .open-badge i { color: var(--brand-1); }
+
+      /* Project cards */
+      .project-card {
+        background: var(--card);
+        border: 1px solid rgba(15,23,42,.06);
+        border-radius: 1.25rem;
+        overflow: hidden;
+        transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        will-change: transform;
+      }
+      .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(2, 8, 23, .18);
+        border-color: rgba(102,16,242,.35);
+      }
+      .project-img {
+        width: 100%; height: 100%; object-fit: cover; filter: brightness(96%);
+        transition: transform .6s ease, filter .6s ease;
+      }
+      .project-card:hover .project-img { transform: scale(1.04); filter: brightness(102%); }
+      .tech-tags { gap: .4rem; }
+      .tech-tag { font-size: .75rem; padding: .25rem .5rem; border-radius: .5rem; background: rgba(2,8,23,.06); color: var(--muted); }
+      body.dark .tech-tag { background: rgba(255,255,255,.07); }
+
+      /* Reveal on scroll */
+      .reveal { opacity: 0; transform: translateY(16px) scale(.98); }
+      .reveal.visible { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.65,.3,1); }
+
+      /* Contact icons */
+      .contact-link { display:inline-flex; align-items:center; justify-content:center; width:3rem; height:3rem; border-radius:50%;
+        background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); color:#fff; transition: transform .25s ease, filter .25s ease; }
+      .contact-link:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+      /* Footer */
+      footer { color: var(--muted); }
+    </style>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top py-2">
+        <div class="container px-4 px-md-5">
+          <a class="navbar-brand fw-bold text-gradient" href="index.html">KK Portfolio</a>
+
+          <div class="d-flex align-items-center order-lg-2 gap-2">
+            <span class="open-badge d-none d-md-inline-flex" title="Actively seeking grad roles"><i class="bi bi-briefcase"></i> Open to Graduate Roles</span>
+            <button id="themeToggle" class="btn btn-sm btn-outline-primary focus-ring" aria-pressed="false" aria-label="Toggle dark mode">
+              <i class="bi bi-moon-stars"></i>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse order-lg-1" id="navbarNav">
+            <ul class="navbar-nav ms-auto fw-semibold small">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="projects.html">Projects</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Header -->
+      <header class="pt-6" style="padding-top: 6.5rem;">
+        <div class="container px-4 px-md-5 text-center">
+          <h1 class="display-5 fw-bolder mb-2"><span class="text-gradient">Projects</span></h1>
+          <p class="lead text-muted">A selection of ML, data, and full‑stack builds I’ve shipped recently.</p>
+        </div>
+      </header>
+
+      <!-- Projects -->
+      <section class="py-5">
+        <div class="container px-4 px-md-5">
+          <div class="row g-4 g-xl-5 justify-content-center">
+
+            <!-- Card Template 1 -->
+            <article class="col-12 col-xl-10 reveal">
+              <div class="project-card row g-0 align-items-stretch">
+                <div class="col-12 col-lg-6 p-4 p-md-5">
+                  <h2 class="h3 fw-bolder mb-2">Thesis – Predictive Analysis in Breast Cancer Screening</h2>
+                  <div class="d-flex flex-wrap tech-tags mb-3">
+                    <span class="tech-tag">Python</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">CNN</span><span class="tech-tag">ViT</span><span class="tech-tag">Random Forest</span><span class="tech-tag">SHAP</span><span class="tech-tag">LIME</span>
+                  </div>
+                  <ul class="mb-3">
+                    <li>Hybrid deep‑learning approach combining CNN, ViT, and Random Forest.</li>
+                    <li>Explainability with SHAP &amp; LIME for clinician‑friendly insights.</li>
+                    <li>Interactive web visualisations to explore predictions.</li>
+                  </ul>
+                                  </div>
+                <div class="col-12 col-lg-6">
+                  <!-- Replace src with your relative asset path -->
+                  <img class="project-img" src="C:\Users\khush\Downloads\khushbukarkiportfolio\khushbukarkiportfolio\assets\download (3).jpeg" alt="Breast cancer project preview" loading="lazy" width="1200" height="800" />
+                </div>
+              </div>
+            </article>
+
+            <!-- Card Template 2 -->
+            <article class="col-12 col-xl-10 reveal">
+              <div class="project-card row g-0 align-items-stretch flex-lg-row-reverse">
+                <div class="col-12 col-lg-6 p-4 p-md-5">
+                  <h2 class="h3 fw-bolder mb-2">Loan Default Prediction</h2>
+                  <div class="d-flex flex-wrap tech-tags mb-3">
+                    <span class="tech-tag">Python</span><span class="tech-tag">scikit‑learn</span><span class="tech-tag">Autoencoders</span><span class="tech-tag">LogReg</span><span class="tech-tag">Streamlit</span>
+                  </div>
+                  <ul class="mb-3">
+                    <li>Credit‑risk model using ensembles + anomaly‑aware autoencoders.</li>
+                    <li>Deployed a live Streamlit dashboard for business users.</li>
+                  </ul>
+                 
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img class="project-img" src="C:\Users\khush\Downloads\khushbukarkiportfolio\khushbukarkiportfolio\assets\download.jpeg" alt="Loan default project preview" loading="lazy" width="1200" height="800" />
+                </div>
+              </div>
+            </article>
+
+            <!-- Card Template 3 -->
+            <article class="col-12 col-xl-10 reveal">
+              <div class="project-card row g-0 align-items-stretch">
+                <div class="col-12 col-lg-6 p-4 p-md-5">
+                  <h2 class="h3 fw-bolder mb-2">IoT‑Based Smart Agriculture</h2>
+                  <div class="d-flex flex-wrap tech-tags mb-3">
+                    <span class="tech-tag">Arduino</span><span class="tech-tag">ESP32</span><span class="tech-tag">MQTT</span><span class="tech-tag">ThingSpeak</span>
+                  </div>
+                  <ul class="mb-3">
+                    <li>Real‑time soil moisture &amp; temperature telemetry.</li>
+                    <li>Cloud dashboards and alerts for remote decision‑making.</li>
+                  </ul>
+                  
+                </div>
+                <div class="col-12 col-lg-6">
+                  <img class="project-img" src="C:\Users\khush\Downloads\khushbukarkiportfolio\khushbukarkiportfolio\assets\download (1).jpeg" alt="Smart agriculture project preview" loading="lazy" width="1200" height="800" />
+                </div>
+              </div>
+            </article>
+
+            <!-- Card Template 4 -->
+            <article class="col-12 col-xl-10 reveal">
+              <div class="project-card row g-0 align-items-stretch flex-lg-row-reverse">
+                <div class="col-12 col-lg-6 p-4 p-md-5">
+                  <h2 class="h3 fw-bolder mb-2">Plant Disease Detection</h2>
+                  <div class="d-flex flex-wrap tech-tags mb-3">
+                    <span class="tech-tag">Python</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">Transfer Learning</span><span class="tech-tag">ResNet</span><span class="tech-tag">Flask</span>
+                  </div>
+                  <ul class="mb-3">
+                    <li>Image classification with ResNet/VGG for crop disease IDs.</li>
+                    <li>Lightweight Flask UI with upload + prediction.</li>
+                  </ul>
+                                 </div>
+                <div class="col-12 col-lg-6">
+                  <img class="project-img" src="C:\Users\khush\Downloads\khushbukarkiportfolio\khushbukarkiportfolio\assets\download (2).jpeg" alt="Plant disease detection preview" loading="lazy" width="1200" height="800" />
+                </div>
+              </div>
+            </article>
+
+            <!-- Card Template 5 -->
+            <article class="col-12 col-xl-10 reveal">
+              <div class="project-card row g-0 align-items-stretch">
+                <div class="col-12 col-lg-6 p-4 p-md-5">
+                  <h2 class="h3 fw-bolder mb-2">Full‑Stack Web Apps – Quiz • Weather • COVID Tracker</h2>
+                  <div class="d-flex flex-wrap tech-tags mb-3">
+                    <span class="tech-tag">React</span><span class="tech-tag">Node</span><span class="tech-tag">Express</span><span class="tech-tag">MySQL</span>
+                  </div>
+                  <ul class="mb-3">
+                    <li>Responsive full‑stack builds with live external APIs.</li>
+                    <li>Emphasis on UX, accessibility, and performance.</li>
+                  </ul>
+                        </div>
+                <div class="col-12 col-lg-6">
+                  <img class="project-img" src="C:\Users\khush\Downloads\khushbukarkiportfolio\khushbukarkiportfolio\assets\download (4).jpeg" alt="Full‑stack apps preview" loading="lazy" width="1200" height="800" />
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-5 text-center text-white" style="background: linear-gradient(135deg, var(--brand-1), var(--brand-2));">
+        <div class="container px-4 px-md-5">
+          <h2 class="display-6 fw-bold mb-2">Let's Connect!</h2>
+          <p class="lead mb-4">I’m open to collaborations and graduate opportunities in NZ.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a class="contact-link" href="mailto:khushbukarki.18@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+            <a class="contact-link" href="https://www.linkedin.com/in/khushbukarki" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a class="contact-link" href="https://github.com/khushbukarki" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-body-tertiary py-4 mt-auto border-top">
+      <div class="container px-4 px-md-5 text-center small">
+        © 2025 KK Portfolio • Built with ❤️ in New Zealand
+      </div>
+    </footer>
+
+    <!-- Modals (Lightbox-style previews) -->
+    <div class="modal fade" id="proj1Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="background: var(--card); color: var(--text);">
+          <div class="modal-header"><h5 class="modal-title">Breast Cancer Screening – Gallery</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body">
+            <img src="assets/projects/breast-cancer.jpg" class="img-fluid rounded" alt="Preview image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="proj2Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="background: var(--card); color: var(--text);">
+          <div class="modal-header"><h5 class="modal-title">Loan Default – Dashboard</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body">
+            <img src="assets/projects/loan-default.jpg" class="img-fluid rounded" alt="Preview image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="proj3Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="background: var(--card); color: var(--text);">
+          <div class="modal-header"><h5 class="modal-title">IoT Agriculture – Telemetry</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body">
+            <img src="assets/projects/agri-iot.jpg" class="img-fluid rounded" alt="Preview image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="proj4Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="background: var(--card); color: var(--text);">
+          <div class="modal-header"><h5 class="modal-title">Plant Disease – Inference UI</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body">
+            <img src="assets/projects/plant-disease.jpg" class="img-fluid rounded" alt="Preview image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="proj5Modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content" style="background: var(--card); color: var(--text);">
+          <div class="modal-header"><h5 class="modal-title">Full‑stack – App screens</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body">
+            <img src="assets/projects/web-apps.jpg" class="img-fluid rounded" alt="Preview image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Page Scripts -->
+    <script>
+      // Navbar shadow on scroll
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector(".navbar");
+        nav.classList.toggle("scrolled", window.scrollY > 24);
+      });
+
+      // Reveal on scroll (IntersectionObserver)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Dark mode toggle (persists to localStorage)
+      const themeToggle = document.getElementById('themeToggle');
+      const savedTheme = localStorage.getItem('kk-theme');
+      if (savedTheme === 'dark') document.body.classList.add('dark');
+      themeToggle.setAttribute('aria-pressed', document.body.classList.contains('dark'));
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        themeToggle.setAttribute('aria-pressed', isDark);
+        themeToggle.innerHTML = isDark ? '<i class="bi bi-brightness-high"></i>' : '<i class="bi bi-moon-stars"></i>';
+        localStorage.setItem('kk-theme', isDark ? 'dark' : 'light');
+      });
+
+      // Improve keyboard focus visibility on cards
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.tabIndex = 0;
+        card.classList.add('focus-ring');
+      });
+    </script>
+  </body>
+</html>

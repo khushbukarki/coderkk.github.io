@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Resume and portfolio" />
+    <title>Portfolio — Resume</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Your theme CSS (optional, kept last to override) -->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+      :root { --radius-4: 1rem; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      .text-gradient { background: linear-gradient(90deg, #0d6efd, #6f42c1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .rounded-4 { border-radius: var(--radius-4) !important; }
+      .card.hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
+      .card.hover-lift:hover { transform: translateY(-4px); box-shadow: 0 1rem 2rem rgba(0,0,0,.08) !important; }
+      /* Reveal animation */
+      [data-animate] { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+      [data-animate].visible { opacity: 1; transform: none; }
+      /* Dark mode */
+      .theme-toggle { border-radius: 999px; }
+      .dark body, body.dark { background-color: #0b0d12; color: #e6e9ef; }
+      body.dark .navbar { background: #0f1320 !important; }
+      body.dark .card { background: #141a29; border-color: rgba(255,255,255,.06); }
+      body.dark .bg-light { background: #101625 !important; }
+      body.dark .text-primary { color: #93c5fd !important; }
+      body.dark .text-secondary { color: #c4b5fd !important; }
+      /* Skill chips */
+      .chip { background:#f8f9fa; border-radius: 999px; padding: .5rem .75rem; display:inline-flex; align-items:center; gap:.5rem; }
+      body.dark .chip { background:#162034; color:#e6e9ef; }
+      .chip i { font-size: 1rem; }
+      /* Fix: make all regular text visible in dark mode */
+      /* Make all text readable in dark mode */
+body.dark {
+  color: #e6e9ef !important; /* soft white for all normal text */
+}
+
+/* Ensure text inside paragraphs, list items, and headings also changes */
+body.dark p,
+body.dark li,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark span,
+body.dark div {
+  color: #e6e9ef !important;
+}
+
+
+      /* Footer */
+      footer { border-top: 1px solid rgba(0,0,0,.06); }
+      body.dark footer { border-color: rgba(255,255,255,.08); }
+      /* Focus styles */
+      :focus-visible { outline: 3px solid #86b7fe; outline-offset: 2px; border-radius: 8px; }
+    </style>
+  </head>
+  <body class="d-flex flex-column min-vh-100 bg-light" id="top">
+    <main class="flex-shrink-0">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top shadow-sm">
+        <div class="container px-4">
+          <a class="navbar-brand fw-bold" href="#top"><span class="text-primary">Resume</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="d-flex gap-2 order-lg-2 ms-auto">
+            <button id="themeBtn" class="btn btn-outline-secondary theme-toggle" type="button" aria-pressed="false" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+            <a class="btn btn-primary" href="C:\Users\khush\Downloads\cvnew.pdf" download><i class="bi bi-download me-2"></i>Download PDF</a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-semibold">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#experience">Experience</a></li>
+              <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+              <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Header -->
+      <header class="py-5">
+        <div class="container px-4 text-center" data-animate>
+          <h1 class="display-5 fw-bolder mb-2"><span class="text-gradient d-inline">Resume</span></h1>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="container px-4 pb-5">
+        <!-- Experience Section -->
+        <section id="experience" class="mb-5" data-animate>
+          <div class="d-flex align-items-center justify-content-between mb-4">
+            <h2 class="text-primary fw-bolder mb-0">Experience</h2>
+            <a class="btn btn-outline-primary px-4" href="assets/cvnew.pdf" download><i class="bi bi-filetype-pdf me-2"></i>Resume</a>
+          </div>
+
+          <!-- Card 1 -->
+          <div class="card shadow border-0 rounded-4 mb-4 hover-lift">
+            <div class="card-body p-4">
+              <div class="row align-items-center g-4">
+                <div class="col-12 col-lg-4 text-center text-lg-start">
+                  <div class="bg-light p-4 rounded-4 h-100">
+                    <div class="text-primary fw-bold mb-2">Aug 2025 – Sep 2025</div>
+                    <div class="small fw-bold">Software Development Job Simulation</div>
+                    <div class="small text-muted">Forage, Datacom</div>
+                    <div class="small text-muted">Online</div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                  <ul class="mb-0 ps-3">
+                    <li>Completed industry-style tasks focusing on software review, root‑cause analysis, and bug fixing.</li>
+                    <li>Strengthened debugging skills and code quality practices within a professional workflow.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card shadow border-0 rounded-4 mb-4 hover-lift">
+            <div class="card-body p-4">
+              <div class="row align-items-center g-4">
+                <div class="col-12 col-lg-4 text-center text-lg-start">
+                  <div class="bg-light p-4 rounded-4 h-100">
+                    <div class="text-primary fw-bold mb-2">Jul 2024 – Present</div>
+                    <div class="small fw-bold">Customer Service Representative</div>
+                    <div class="small text-muted">BP Connect</div>
+                    <div class="small text-muted">Kumeū, Auckland</div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                  <ul class="mb-0 ps-3">
+                    <li>Delivered high‑quality customer service, cash handling, and store operations.</li>
+                    <li>Demonstrated teamwork, agility, and time management in a fast‑paced environment.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card shadow border-0 rounded-4 mb-4 hover-lift">
+            <div class="card-body p-4">
+              <div class="row align-items-center g-4">
+                <div class="col-12 col-lg-4 text-center text-lg-start">
+                  <div class="bg-light p-4 rounded-4 h-100">
+                    <div class="text-primary fw-bold mb-2">Jan 2020 – Feb 2020</div>
+                    <div class="small fw-bold">Intern</div>
+                    <div class="small text-muted">C‑DAC</div>
+                    <div class="small text-muted">Noida, India</div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                  <ul class="mb-0 ps-3">
+                    <li>Developed concept for a unified smart card for metro, payments, and retail.</li>
+                    <li>Explored secure integration pathways with banking systems for nationwide adoption.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card shadow border-0 rounded-4 mb-4 hover-lift">
+            <div class="card-body p-4">
+              <div class="row align-items-center g-4">
+                <div class="col-12 col-lg-4 text-center text-lg-start">
+                  <div class="bg-light p-4 rounded-4 h-100">
+                    <div class="text-primary fw-bold mb-2">Jun 2018 – Jul 2018</div>
+                    <div class="small fw-bold">Intern</div>
+                    <div class="small text-muted">MANIT</div>
+                    <div class="small text-muted">Bhopal, India</div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                  <ul class="mb-0 ps-3">
+                    <li>Prepared a technical report on Variational Mode Decomposition (VMD).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="mb-5" data-animate>
+          <h2 class="text-secondary fw-bolder mb-4">Education</h2>
+
+          <!-- Education Card 1 -->
+          <div class="card shadow border-0 rounded-4 mb-4 hover-lift">
+            <div class="card-body p-4">
+              <div class="row align-items-start g-4">
+                <div class="col-12 col-lg-4 text-center text-lg-start">
+                  <div class="bg-light p-4 rounded-4 h-100">
+                    <div class="text-secondary fw-bold mb-2">Jul 2024 – Nov 2025</div>
+                    <div class="mb-2">
+                      <div class="small fw-bold">Unitec Institute of Technology</div>
+                      <div class="small text-muted">Auckland, New Zealand</div>
+                    </div>
+                    <div class="fst-italic small">
+                      <div class="text-muted">Master of Applied Technology</div>
+                      <div class="text-muted">Software Development</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                  <ul class="mb-0 ps-3">
+                    <li><strong>Research Methods:</strong> Data collection, analysis, and academic reporting.</li>
+                    <li><strong>Internet of Things (IoT):</strong> Sensor integration, real-time monitoring, cloud connectivity.</li>
+                    <li><strong>Machine Learning:</strong> Supervised/unsupervised learning, predictive modelling.</li>
+                    <li><strong>Advanced Web Development:</strong> Responsive design and CRM concepts (Huapai Agency report).</li>
+                    <li><strong>Cloud Computing:</strong> Deploying and scaling apps; serverless and virtualization.</li>
+                    <li><strong>Data Analytics & Intelligence:</strong> Visualisation and statistical insight generation.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Card 2 (aligned to Card 1) -->
+          <div class="card shadow border-0 rounded-4 mb-4 hover-lift">
+            <div class="card-body p-4">
+              <div class="row align-items-start g-4">
+                <div class="col-12 col-lg-4 text-center text-lg-start">
+                  <div class="bg-light p-4 rounded-4 h-100">
+                    <div class="text-secondary fw-bold mb-2">Aug 2017 – Aug 2021</div>
+                    <div class="mb-2">
+                      <div class="small fw-bold">Bipin Tripathi Kumaon Institute of Technology</div>
+                      <div class="small text-muted">Dwarahat, India</div>
+                    </div>
+                    <div class="fst-italic small">
+                      <div class="text-muted">Bachelor of Technology</div>
+                      <div class="text-muted">Electronics & Communication Engineering</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-8">
+                  <ul class="mb-0 ps-3">
+                    <li>Completed B.Tech in ECE with coursework in signals, embedded systems, and communications.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" data-animate>
+          <div class="card shadow border-0 rounded-4">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature bg-primary bg-gradient text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width:44px;height:44px"><i class="bi bi-tools"></i></div>
+                <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Technologies / Methodologies</span></h3>
+              </div>
+
+              <!-- Filter input -->
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input id="skillSearch" type="search" class="form-control" placeholder="Filter skills (e.g., React, SQL, AWS)" aria-label="Filter skills" />
+                <button id="clearFilter" class="btn btn-outline-secondary" type="button">Clear</button>
+              </div>
+
+              <div id="skillList" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <div class="col"><span class="chip"><i class="bi bi-dot"></i>.NET</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-server"></i>SQL Server</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-window"></i>Web Development</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-code-slash"></i>VS Code</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-react"></i>React</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-node-plus"></i>Node.js</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-bar-chart"></i>Power BI</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-cloud"></i>AWS</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-diagram-3"></i>Data Structures & Algorithms</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-git"></i>Git & GitHub</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-cpu"></i>Machine & Deep Learning</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-kanban"></i>Jira</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-palette"></i>UI/UX Design</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-activity"></i>CI/CD</span></div>
+                <div class="col"><span class="chip"><i class="bi bi-arrows-move"></i>Agile</span></div>
+              </div>
+
+              <hr class="my-4" />
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature bg-primary bg-gradient text-white rounded-circle d-inline-flex justify-content-center align-items-center me-3" style="width:44px;height:44px"><i class="bi bi-code-slash"></i></div>
+                <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
+              </div>
+
+              <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <div class="col"><span class="chip">HTML</span></div>
+                <div class="col"><span class="chip">CSS</span></div>
+                <div class="col"><span class="chip">JavaScript</span></div>
+                <div class="col"><span class="chip">Python</span></div>
+                <div class="col"><span class="chip">R</span></div>
+                <div class="col"><span class="chip">Node.js</span></div>
+                <div class="col"><span class="chip">C++</span></div>
+                <div class="col"><span class="chip">C</span></div>
+                <div class="col"><span class="chip">Java</span></div>
+                <div class="col"><span class="chip">C#</span></div>
+                <div class="col"><span class="chip">PHP</span></div>
+                <div class="col"><span class="chip">SQL</span></div>
+                <div class="col"><span class="chip">TypeScript</span></div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 mt-auto">
+      <div class="container px-4">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+          <div class="col-auto"><div class="small m-0">Copyright &copy; kkportfolio 2025 | Built with ❤️ in New Zealand</div></div>
+          <div class="col-auto d-flex gap-3">
+            <a href="mailto:khushbukarki.18@gmail.com" class="text-decoration-none" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+            <a href="https://www.linkedin.com/in/khushbukarki" target="_blank" rel="noopener" class="text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/khushbukarki" target="_blank" rel="noopener" class="text-decoration-none" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS: Bootstrap, then page script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <script>
+      // Dark mode toggle with persistence
+      (function() {
+        const btn = document.getElementById('themeBtn');
+        const pref = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (pref === 'dark') document.body.classList.add('dark');
+        btn?.addEventListener('click', () => {
+          document.body.classList.toggle('dark');
+          const mode = document.body.classList.contains('dark') ? 'dark' : 'light';
+          localStorage.setItem('theme', mode);
+          btn.setAttribute('aria-pressed', mode === 'dark');
+          btn.innerHTML = mode === 'dark' ? '<i class="bi bi-brightness-high"></i>' : '<i class="bi bi-moon-stars"></i>';
+        });
+      })();
+
+      // Reveal on scroll
+      const toReveal = document.querySelectorAll('[data-animate]');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.15 });
+      toReveal.forEach(el => io.observe(el));
+
+      // Skill filter
+      const input = document.getElementById('skillSearch');
+      const clear = document.getElementById('clearFilter');
+      const list = document.getElementById('skillList');
+      function applyFilter() {
+        const q = (input.value || '').toLowerCase().trim();
+        [...list.querySelectorAll('.col')].forEach(col => {
+          const t = col.textContent.toLowerCase();
+          col.style.display = t.includes(q) ? '' : 'none';
+        });
+      }
+      input?.addEventListener('input', applyFilter);
+      clear?.addEventListener('click', () => { input.value = ''; applyFilter(); input.focus(); });
+
+      // Copy email
+      document.getElementById('copyEmail')?.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText('khushbukarki.18@gmail.com');
+          const btn = document.getElementById('copyEmail');
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => (btn.textContent = original), 1200);
+        } catch (e) { alert('Could not copy email.'); }
+      });
+
+      // Active nav highlighting (basic scrollspy)
+      const sections = ['experience','education','skills'];
+      const navLinks = sections.map(id => ({ id, el: document.querySelector(`a.nav-link[href="#${id}"]`) }));
+      function setActive() {
+        let current = 'experience';
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top - 100 < 0) current = id;
+        });
+        navLinks.forEach(({id, el}) => { el?.classList.toggle('active', id === current); });
+      }
+      document.addEventListener('scroll', setActive, { passive: true });
+      setActive();
+    </script>
+  </body>
+</html>
