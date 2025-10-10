@@ -35,25 +35,21 @@
         --ring: rgba(255,255,255,.35);
       }
       body.dark {
-  color: #e6e9ef !important; /* soft white for all normal text */
-}
+        color: #e6e9ef !important;
+      }
+      body.dark p,
+      body.dark li,
+      body.dark h1,
+      body.dark h2,
+      body.dark h3,
+      body.dark h4,
+      body.dark h5,
+      body.dark h6,
+      body.dark span,
+      body.dark div {
+        color: #e6e9ef !important;
+      }
 
-/* Ensure text inside paragraphs, list items, and headings also changes */
-body.dark p,
-body.dark li,
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6,
-body.dark span,
-body.dark div {
-  color: #e6e9ef !important;
-}
-
-
-      /* Base */
       html, body { height: 100%; }
       body {
         font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -63,17 +59,16 @@ body.dark div {
       a { color: inherit; }
       .focus-ring:focus { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: .6rem; }
 
-      /* Navbar */
       .navbar { transition: all .4s ease; backdrop-filter: saturate(120%) blur(8px); }
       .navbar.scrolled { box-shadow: 0 8px 24px rgba(0,0,0,.08); }
 
-      /* Gradient text */
       .text-gradient {
         background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
-        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
-      /* Badge */
       .open-badge {
         display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; letter-spacing: .3px;
         background: linear-gradient(135deg, rgba(0,123,255,.1), rgba(102,16,242,.1));
@@ -82,7 +77,6 @@ body.dark div {
       }
       .open-badge i { color: var(--brand-1); }
 
-      /* Project cards */
       .project-card {
         background: var(--card);
         border: 1px solid rgba(15,23,42,.06);
@@ -105,29 +99,25 @@ body.dark div {
       .tech-tag { font-size: .75rem; padding: .25rem .5rem; border-radius: .5rem; background: rgba(2,8,23,.06); color: var(--muted); }
       body.dark .tech-tag { background: rgba(255,255,255,.07); }
 
-      /* Reveal on scroll */
       .reveal { opacity: 0; transform: translateY(16px) scale(.98); }
       .reveal.visible { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.65,.3,1); }
 
-      /* Contact icons */
       .contact-link { display:inline-flex; align-items:center; justify-content:center; width:3rem; height:3rem; border-radius:50%;
         background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); color:#fff; transition: transform .25s ease, filter .25s ease; }
       .contact-link:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
-      /* Footer */
       footer { color: var(--muted); }
     </style>
   </head>
 
   <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
-      <!-- Navbar -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top py-2">
         <div class="container px-4 px-md-5">
           <a class="navbar-brand fw-bold text-gradient" href="index.html">KK Portfolio</a>
 
           <div class="d-flex align-items-center order-lg-2 gap-2">
-            <span class="open-badge d-none d-md-inline-flex" title="Actively seeking grad roles"><i class="bi bi-briefcase"></i> Open to Graduate Roles</span>
+            <span class="open-badge d-none d-md-inline-flex"><i class="bi bi-briefcase"></i> Open to Graduate Roles</span>
             <button id="themeToggle" class="btn btn-sm btn-outline-primary focus-ring" aria-pressed="false" aria-label="Toggle dark mode">
               <i class="bi bi-moon-stars"></i>
             </button>
@@ -146,20 +136,17 @@ body.dark div {
         </div>
       </nav>
 
-      <!-- Header -->
       <header class="pt-6" style="padding-top: 6.5rem;">
         <div class="container px-4 px-md-5 text-center">
           <h1 class="display-5 fw-bolder mb-2"><span class="text-gradient">Projects</span></h1>
-          <p class="lead text-muted">A selection of ML, data, and full‑stack builds I’ve shipped recently.</p>
+          <p class="lead text-muted">A selection of ML, data, and full-stack builds I’ve shipped recently.</p>
         </div>
       </header>
 
-      <!-- Projects -->
       <section class="py-5">
         <div class="container px-4 px-md-5">
           <div class="row g-4 g-xl-5 justify-content-center">
 
-            <!-- Card Template 1 -->
             <article class="col-12 col-xl-10 reveal">
               <div class="project-card row g-0 align-items-stretch">
                 <div class="col-12 col-lg-6 p-4 p-md-5">
@@ -168,59 +155,55 @@ body.dark div {
                     <span class="tech-tag">Python</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">CNN</span><span class="tech-tag">ViT</span><span class="tech-tag">Random Forest</span><span class="tech-tag">SHAP</span><span class="tech-tag">LIME</span>
                   </div>
                   <ul class="mb-3">
-                    <li>Hybrid deep‑learning approach combining CNN, ViT, and Random Forest.</li>
-                    <li>Explainability with SHAP &amp; LIME for clinician‑friendly insights.</li>
+                    <li>Hybrid deep-learning approach combining CNN, ViT, and Random Forest.</li>
+                    <li>Explainability with SHAP & LIME for clinician-friendly insights.</li>
                     <li>Interactive web visualisations to explore predictions.</li>
                   </ul>
-                                  </div>
-                 <div class="col-lg-6 d-flex justify-content-center">
-  <div class="profile-frame reveal">
-    <img src="assets/download(3).jpeg" alt="Khushbu Karki profile" loading="lazy" />
-  </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center">
+                  <div class="profile-frame reveal">
+                    <img src="assets/download%20(3).jpeg" alt="Khushbu Karki profile" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </article>
 
-            <!-- Card Template 2 -->
             <article class="col-12 col-xl-10 reveal">
               <div class="project-card row g-0 align-items-stretch flex-lg-row-reverse">
                 <div class="col-12 col-lg-6 p-4 p-md-5">
                   <h2 class="h3 fw-bolder mb-2">Loan Default Prediction</h2>
                   <div class="d-flex flex-wrap tech-tags mb-3">
-                    <span class="tech-tag">Python</span><span class="tech-tag">scikit‑learn</span><span class="tech-tag">Autoencoders</span><span class="tech-tag">LogReg</span><span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">Python</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">Autoencoders</span><span class="tech-tag">LogReg</span><span class="tech-tag">Streamlit</span>
                   </div>
                   <ul class="mb-3">
-                    <li>Credit‑risk model using ensembles + anomaly‑aware autoencoders.</li>
+                    <li>Credit-risk model using ensembles + anomaly-aware autoencoders.</li>
                     <li>Deployed a live Streamlit dashboard for business users.</li>
                   </ul>
-                 
                 </div>
                 <div class="col-12 col-lg-6">
-                  <img class="project-img" src="assets\download.jpeg" alt="Loan default project preview" loading="lazy" width="1200" height="800" />
+                  <img class="project-img" src="assets/download.jpeg" alt="Loan default project preview" loading="lazy" width="1200" height="800" />
                 </div>
               </div>
             </article>
 
-            <!-- Card Template 3 -->
             <article class="col-12 col-xl-10 reveal">
               <div class="project-card row g-0 align-items-stretch">
                 <div class="col-12 col-lg-6 p-4 p-md-5">
-                  <h2 class="h3 fw-bolder mb-2">IoT‑Based Smart Agriculture</h2>
+                  <h2 class="h3 fw-bolder mb-2">IoT-Based Smart Agriculture</h2>
                   <div class="d-flex flex-wrap tech-tags mb-3">
                     <span class="tech-tag">Arduino</span><span class="tech-tag">ESP32</span><span class="tech-tag">MQTT</span><span class="tech-tag">ThingSpeak</span>
                   </div>
                   <ul class="mb-3">
-                    <li>Real‑time soil moisture &amp; temperature telemetry.</li>
-                    <li>Cloud dashboards and alerts for remote decision‑making.</li>
+                    <li>Real-time soil moisture & temperature telemetry.</li>
+                    <li>Cloud dashboards and alerts for remote decision-making.</li>
                   </ul>
-                  
                 </div>
                 <div class="col-12 col-lg-6">
-                  <img class="project-img" src="assets\download (1).jpeg" alt="Smart agriculture project preview" loading="lazy" width="1200" height="800" />
+                  <img class="project-img" src="assets/download%20(1).jpeg" alt="Smart agriculture project preview" loading="lazy" width="1200" height="800" />
                 </div>
               </div>
             </article>
 
-            <!-- Card Template 4 -->
             <article class="col-12 col-xl-10 reveal">
               <div class="project-card row g-0 align-items-stretch flex-lg-row-reverse">
                 <div class="col-12 col-lg-6 p-4 p-md-5">
@@ -232,28 +215,27 @@ body.dark div {
                     <li>Image classification with ResNet/VGG for crop disease IDs.</li>
                     <li>Lightweight Flask UI with upload + prediction.</li>
                   </ul>
-                                 </div>
+                </div>
                 <div class="col-12 col-lg-6">
-                  <img class="project-img" src="assets\download (2).jpeg" alt="Plant disease detection preview" loading="lazy" width="1200" height="800" />
+                  <img class="project-img" src="assets/download%20(2).jpeg" alt="Plant disease detection preview" loading="lazy" width="1200" height="800" />
                 </div>
               </div>
             </article>
 
-            <!-- Card Template 5 -->
             <article class="col-12 col-xl-10 reveal">
               <div class="project-card row g-0 align-items-stretch">
                 <div class="col-12 col-lg-6 p-4 p-md-5">
-                  <h2 class="h3 fw-bolder mb-2">Full‑Stack Web Apps – Quiz • Weather • COVID Tracker</h2>
+                  <h2 class="h3 fw-bolder mb-2">Full-Stack Web Apps – Quiz • Weather • COVID Tracker</h2>
                   <div class="d-flex flex-wrap tech-tags mb-3">
                     <span class="tech-tag">React</span><span class="tech-tag">Node</span><span class="tech-tag">Express</span><span class="tech-tag">MySQL</span>
                   </div>
                   <ul class="mb-3">
-                    <li>Responsive full‑stack builds with live external APIs.</li>
+                    <li>Responsive full-stack builds with live external APIs.</li>
                     <li>Emphasis on UX, accessibility, and performance.</li>
                   </ul>
-                        </div>
+                </div>
                 <div class="col-12 col-lg-6">
-                  <img class="project-img" src="assets\download (4).jpeg" alt="Full‑stack apps preview" loading="lazy" width="1200" height="800" />
+                  <img class="project-img" src="assets/download%20(4).jpeg" alt="Full-stack apps preview" loading="lazy" width="1200" height="800" />
                 </div>
               </div>
             </article>
@@ -262,7 +244,6 @@ body.dark div {
         </div>
       </section>
 
-      <!-- CTA -->
       <section class="py-5 text-center text-white" style="background: linear-gradient(135deg, var(--brand-1), var(--brand-2));">
         <div class="container px-4 px-md-5">
           <h2 class="display-6 fw-bold mb-2">Let's Connect!</h2>
@@ -282,74 +263,13 @@ body.dark div {
       </div>
     </footer>
 
-    <!-- Modals (Lightbox-style previews) -->
-    <div class="modal fade" id="proj1Modal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content" style="background: var(--card); color: var(--text);">
-          <div class="modal-header"><h5 class="modal-title">Breast Cancer Screening – Gallery</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-          <div class="modal-body">
-            <img src="assets/projects/breast-cancer.jpg" class="img-fluid rounded" alt="Preview image" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="proj2Modal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content" style="background: var(--card); color: var(--text);">
-          <div class="modal-header"><h5 class="modal-title">Loan Default – Dashboard</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-          <div class="modal-body">
-            <img src="assets/projects/loan-default.jpg" class="img-fluid rounded" alt="Preview image" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="proj3Modal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content" style="background: var(--card); color: var(--text);">
-          <div class="modal-header"><h5 class="modal-title">IoT Agriculture – Telemetry</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-          <div class="modal-body">
-            <img src="assets/projects/agri-iot.jpg" class="img-fluid rounded" alt="Preview image" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="proj4Modal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content" style="background: var(--card); color: var(--text);">
-          <div class="modal-header"><h5 class="modal-title">Plant Disease – Inference UI</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-          <div class="modal-body">
-            <img src="assets/projects/plant-disease.jpg" class="img-fluid rounded" alt="Preview image" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="proj5Modal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content" style="background: var(--card); color: var(--text);">
-          <div class="modal-header"><h5 class="modal-title">Full‑stack – App screens</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-          <div class="modal-body">
-            <img src="assets/projects/web-apps.jpg" class="img-fluid rounded" alt="Preview image" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bootstrap Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Page Scripts -->
     <script>
-      // Navbar shadow on scroll
       window.addEventListener("scroll", () => {
         const nav = document.querySelector(".navbar");
         nav.classList.toggle("scrolled", window.scrollY > 24);
       });
 
-      // Reveal on scroll (IntersectionObserver)
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -360,7 +280,6 @@ body.dark div {
       }, { threshold: 0.12 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // Dark mode toggle (persists to localStorage)
       const themeToggle = document.getElementById('themeToggle');
       const savedTheme = localStorage.getItem('kk-theme');
       if (savedTheme === 'dark') document.body.classList.add('dark');
@@ -371,12 +290,6 @@ body.dark div {
         themeToggle.setAttribute('aria-pressed', isDark);
         themeToggle.innerHTML = isDark ? '<i class="bi bi-brightness-high"></i>' : '<i class="bi bi-moon-stars"></i>';
         localStorage.setItem('kk-theme', isDark ? 'dark' : 'light');
-      });
-
-      // Improve keyboard focus visibility on cards
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.tabIndex = 0;
-        card.classList.add('focus-ring');
       });
     </script>
   </body>
